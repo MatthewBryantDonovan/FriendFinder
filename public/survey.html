@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<!--     <link href="assets/css/style.css" rel="stylesheet"> -->
+    <title>FriendFinder Survey</title>
+</head>
+
+<body>
+
+    <button type="submit" id="add-friend">Add to Friends</button>
+    <a href="/"><button >Home</button></a>
+    <div id="friendpost"></div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script type="text/javascript">
+        $("#add-friend").on("click", function(event) {
+          event.preventDefault();
+          var newFriend = {
+            name: "Joe",
+            photo: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+            scores: [1,2,3,4,5,6,7,8,9,10]
+          };
+          console.log(newFriend);
+          
+    
+          $.post("/api/friends", newFriend)
+            .then(function(data) {
+              console.log("survey.html", data);
+              console.log("Adding character - " + newFriend.name);
+              console.log(data);
+              $("#friendpost").empty();
+              for (var index = 0; index < data.length; index++) {
+                  var friendname = $("<div>").html("<p>" + data[index].name + "</p>");
+                  friendname.prependTo("#friendpost");
+              }
+              
+            });
+        });
+      </script>
+
+</body>
+
+</html>
