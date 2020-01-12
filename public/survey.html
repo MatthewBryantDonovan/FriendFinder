@@ -2,50 +2,478 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<!--     <link href="assets/css/style.css" rel="stylesheet"> -->
-    <title>FriendFinder Survey</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--     <link href="assets/css/style.css" rel="stylesheet"> -->
+  <title>FriendFinder Survey</title>
 </head>
 
 <body>
+  <div class="container">
 
-    <button type="submit" id="add-friend">Add to Friends</button>
-    <a href="/"><button >Home</button></a>
-    <div id="friendpost"></div>
+    <div class="row">
+      <div class="col s12 center-align">
+        <h1>Friend Finder <a href="/" class="btn-floating btn-large cyan"><i class="material-icons">home</i></a></h1>
+        <hr>
+      </div>
+      <div class="col s12 center-align">
+        <h3>Survey Questions</h3>
+        <hr>
+      </div>
+      <div class="col s12 left-align">
+        <h4><strong>About You</strong></h4>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="name" type="text" class="validate" required>
+            <label for="name">Enter your name (Required)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="pic" type="text" class="validate" required>
+            <label for="pic">Enter a link to photo image of Yourself (Required)</label>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 left-align">
+        <form id="form2">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+          <!-- Question 1 -->
+          <h5><strong>Question 1</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
 
-    <script type="text/javascript">
-        $("#add-friend").on("click", function(event) {
-          event.preventDefault();
-          var newFriend = {
-            name: "Joe",
-            photo: "https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
-            scores: [1,2,3,4,5,6,7,8,9,10]
-          };
-          console.log(newFriend);
-          
-    
-          $.post("/api/friends", newFriend)
-            .then(function(data) {
-              console.log("survey.html", data);
-              console.log("Adding character - " + newFriend.name);
-              console.log(data);
-              $("#friendpost").empty();
-              for (var index = 0; index < data.length; index++) {
-                  var friendname = $("<div>").html("<p>" + data[index].name + "</p>");
-                  friendname.prependTo("#friendpost");
-              }
-              
-            });
-        });
-      </script>
+            <label>
+              <input class="with-gap" name="group1" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group1" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group1" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group1" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group1" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 1 -->
+
+          <!-- Question 2 -->
+          <h5><strong>Question 2</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group2" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group2" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group2" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group2" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group2" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 2 -->
+
+          <!-- Question 3 -->
+          <h5><strong>Question 3</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group3" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group3" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group3" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group3" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group3" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 3 -->
+
+          <!-- Question 4 -->
+          <h5><strong>Question 4</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group4" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group4" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group4" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group4" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group4" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 4 -->
+
+          <!-- Question 5 -->
+          <h5><strong>Question 5</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group5" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group5" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group5" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group5" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group5" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 5 -->
+
+          <!-- Question 6 -->
+          <h5><strong>Question 6</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group6" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group6" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group6" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group6" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group6" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 6 -->
+
+          <!-- Question 7 -->
+          <h5><strong>Question 7</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group7" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group7" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group7" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group7" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group7" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 7 -->
+
+          <!-- Question 8 -->
+          <h5><strong>Question 8</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group8" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group8" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group8" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group8" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group8" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 8 -->
+
+          <!-- Question 9 -->
+          <h5><strong>Question 9</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group9" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group9" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group9" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group9" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group9" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 9 -->
+
+          <!-- Question 10 -->
+          <h5><strong>Question 10</strong></h5>
+          <p>How many things for stuff?</p>
+          <span>
+            <label>
+              <input class="with-gap" name="group10" type="radio" value="1" required />
+              <span>1 (Strongly Disagree)</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group10" type="radio" value="2" />
+              <span>2</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group10" type="radio" value="3" checked />
+              <span>3</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group10" type="radio" value="4" />
+              <span>4</span>
+            </label>
+          </span>
+          <span>
+            <label>
+              <input class="with-gap" name="group10" type="radio" value="5" />
+              <span>5 (Strongly Agree)</span>
+            </label>
+          </span>
+          <!-- End question 10 -->
+        </form>
+        <br>
+        <button class="btn waves-effect waves-light col s12" type="submit" name="action" id="add-friend">
+          Submit and find friend
+          <i class="material-icons left">people_outline</i>
+          <i class="material-icons right">people</i>
+        </button>
+      </div>
+    </div>
+
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <h4 id="match-name">Name</h4>
+        <img src="" id="match-pic">
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+  <div id="friendpost"></div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('.modal').modal();
+    });
+
+    $("#add-friend").on("click", function (event) {
+      event.preventDefault();
+      if ($("#name").val().trim() != "" && $("#pic").val().trim() != "") {
+        var formData = $("form").serializeArray();
+
+        var newFriend = {
+          name: $("#name").val().trim(),
+          photo: $("#pic").val().trim(),
+          scores: [
+            formData[0].value,
+            formData[1].value,
+            formData[2].value,
+            formData[3].value,
+            formData[4].value,
+            formData[5].value,
+            formData[6].value,
+            formData[7].value,
+            formData[8].value,
+            formData[9].value
+          ]
+        };
+        $("#name").val("");
+        $("#pic").val("");
+        console.log(newFriend);
+
+        $.post("/api/friends", newFriend)
+          .then(function (data) {
+            console.log("survey.html", data);
+            console.log("Adding character - " + newFriend.name);
+            console.log(data);
+            // $("#friendpost").empty();
+            // for (var index = 0; index < data.length; index++) {
+            //   var friendname = $("<div>").html("<p>" + data[index].name + "</p>");
+            //   friendname.prependTo("#friendpost");
+            // }
+
+            $('#match-name').html(data[0].name);
+            $('#match-pic').attr("src", data[0].photo);
+
+            $('.modal').modal('open');
+
+          });
+      } else {
+        alert("Please make sure you have typed in a name and a link to a photo!");
+      }
+    });
+  </script>
 
 </body>
 
