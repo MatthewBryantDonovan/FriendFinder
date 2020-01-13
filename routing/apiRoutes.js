@@ -27,17 +27,14 @@ router.post("/api/friends", function (req, res) {
     var bestMatch = 9999;
 
     for (var friend = 0; friend < allFriends.length; friend++) {
-        console.log(allFriends[friend]);
         
         for (var index = 0; index < newFriend.scores.length; index++) {
-            if (allFriends[friend].scores[index] >= newFriend.scores[index]) {
-                currentTally = currentTally + (allFriends[friend].scores[index] - newFriend.scores[index]);
+            if (parseInt(allFriends[friend].scores[index]) >= parseInt(newFriend.scores[index])) {
+                currentTally = currentTally + (parseInt(allFriends[friend].scores[index]) - parseInt(newFriend.scores[index]));
             } else {
-                currentTally = currentTally + (newFriend.scores[index] - allFriends[friend].scores[index]);
+                currentTally = currentTally + (parseInt(newFriend.scores[index]) - parseInt(allFriends[friend].scores[index]));
             };
         };
-        console.log(currentTally);
-        console.log(bestMatch);
         
         if (currentTally < bestMatch) {
             matchObj = [];
