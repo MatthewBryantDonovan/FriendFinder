@@ -76,4 +76,5 @@ var allFriends = [{
   }
 ];
 
-  module.exports = allFriends;
+// For use in apiRoutes.js
+module.exports = allFriends;

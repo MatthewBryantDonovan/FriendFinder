@@ -1,5 +1,5 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
 var path = require("path");
 
 // Routes
@@ -14,8 +14,10 @@ router.get("/survey", function (req, res) {
     res.sendFile(path.join(__dirname, "../public/survey.html"));
 });
 
+//Route all other requests to the home Page
 router.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
 });
 
+//Export for server.js to use.
 module.exports = router;

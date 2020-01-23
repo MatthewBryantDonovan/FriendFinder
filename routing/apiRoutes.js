@@ -1,3 +1,5 @@
+// Dependencies
+// =============================================================
 var express = require("express");
 var router = express.Router();
 var allFriends = require("../app/data/friends");
@@ -52,5 +54,5 @@ router.post("/api/friends", function (req, res) {
 
 });
 
-
+//Export for server.js to use.
 module.exports = router;
